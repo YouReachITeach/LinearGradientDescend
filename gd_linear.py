@@ -1,7 +1,9 @@
 import numpy as np
 # Loss: SUM((y-yhat)^2)
 #1-dimensional. yhat = wx +b
-
+#Difference Batch & SGD: Looking at all datapoints every time -> takes longer per descend but better overview
+#   vs looking at only one datapoint each descend -> less overview but better performance
+#   the Gradient stays two-dimensional for this example.
 
 x = np.random.randn(10, 1)
 
@@ -57,7 +59,6 @@ for epoch in range(runs):
 print(f"actual slope: {b}, actual offset: {0}")
 print(f"batch: c = {c_batch}, d = {d_batch}, error = {b-c_batch}")
 print(f"SGD: c = {c}, b = {d}, error = {b-c}")
-
 print(f"x0 = {x[0]}")
 print(f"y0 = {y[0]}")
 print(f"y0hat batch = {(c_batch * x[0] + d_batch)}")
